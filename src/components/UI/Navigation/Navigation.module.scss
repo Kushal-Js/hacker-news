@@ -1,0 +1,34 @@
+@import "../../../sass/abstract/variables";
+@import "../../../sass/abstract/mixins";
+
+.newsfeed__article {
+  overflow-wrap: break-word;
+  @include display-flex(row);
+  justify-content: space-between;
+  padding: 0.2rem;
+  &_box1 {
+    width: 30%;
+    text-align: left;
+    margin-right: 1rem;
+  }
+  &_box2 {
+    @include display-flex(row);
+    justify-content: space-between;
+    width: 20%;
+    margin-right: 1rem;
+    &_C1 {
+      margin-right: 0.4rem;
+      text-align: left;
+      width: 30%;
+      margin-right: 1rem;
+    }
+    &_C2 {
+      width: 30%;
+      text-align: left;
+      margin-right: 1rem;
+    }
+  }
+  &_box3 {
+    width: 85%;
+  }
+}
