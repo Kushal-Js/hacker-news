@@ -31,7 +31,7 @@ class Newsfeed extends Component {
 
   componentDidMount() {
     const newsData = JSON.parse(localStorage.getItem("newsData"));
-    if (newsData.hits.length > 0) {
+    if (newsData && newsData.hits && newsData.hits.length > 0) {
       this.setState({
         hits: newsData.hits,
         page: 0,
