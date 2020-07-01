@@ -68,7 +68,7 @@ class Newsfeed extends Component {
       newsType = LATEST_NEWS;
     }
     const newsData = JSON.parse(localStorage.getItem("newsData"));
-    if (Number(newsData.page) !== Number(pNo) && pNo) {
+    if (newsData && newsData.page && Number(newsData.page) !== Number(pNo) && pNo) {
       Axios.get(newsType + PAGE_SEARCH_PARAM_REMOTE + Math.abs(pNo))
         .then((res) => {
           if (res.status === SUCCESS_STATUS) {
