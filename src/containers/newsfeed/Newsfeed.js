@@ -43,16 +43,16 @@ class Newsfeed extends Component {
     }
   }
 
-  componentDidUpdate() {
-    const newsData = JSON.parse(localStorage.getItem("newsData"));
-    const pNo = this.getPageNumber();
-    const { history } = this.props;
-    const { newsType, page } = this.state;
-    // if (history.location.pathname !== newsType) {
-    //     this.getHackerNews(pNo);
-    // }
-    this.getHackerNews(pNo);
-  }
+  // componentDidUpdate() {
+  //   const newsData = JSON.parse(localStorage.getItem("newsData"));
+  //   const pNo = this.getPageNumber();
+  //   const { history } = this.props;
+  //   const { newsType, page } = newsData;
+  //   if (history.location.pathname !== newsType) {
+  //     console.log("Test", newsType, newsData, history.location.pathname);
+  //     this.getHackerNews(pNo);
+  //   }
+  // }
 
   getPageNumber() {
     const { history } = this.props;
@@ -69,8 +69,8 @@ class Newsfeed extends Component {
     }
     const newsData = JSON.parse(localStorage.getItem("newsData"));
     let pageNum = 1;
-    if (newsData && newsData.page) {
-      pageNum = newsData.page;
+    if (newsData) {
+      pageNum = newsData.page ? newsData.page : 0;
     }
     if (pageNum !== pNo) {
       Axios.get(newsType + PAGE_SEARCH_PARAM_REMOTE + Math.abs(pNo))
@@ -116,17 +116,19 @@ class Newsfeed extends Component {
     history.push({
       search: PAGE_SEARCH_PARAM + pNo,
     });
+    this.getHackerNews(pNo);
   };
 
   onPrevBtnClicked = () => {
     const newsData = JSON.parse(localStorage.getItem("newsData"));
     const { page } = newsData;
     const { history } = this.props;
-    // console.log('previous', pNo, page);
+    console.log('previous', pNo, page);
     const pNo = page - 1;
     history.push({
       search: PAGE_SEARCH_PARAM + pNo,
     });
+    this.getHackerNews(pNo);
   };
 
   onClickUpVoteHandler = (objectID) => {
