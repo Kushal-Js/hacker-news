@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ReactRouterPropTypes from "react-router-prop-types";
-// import { render } from 'react-dom'
 import Newsitem from "../../components/newsitem/NewsItem";
 import Axios from "../../utils/axios/Axios-Config";
 import { FRONT_PAGE_NEWS, LATEST_NEWS } from "../../utils/ServiceURL";
@@ -42,17 +41,6 @@ class Newsfeed extends Component {
       this.getHackerNews(this.getPageNumber());
     }
   }
-
-  // componentDidUpdate() {
-  //   const newsData = JSON.parse(localStorage.getItem("newsData"));
-  //   const pNo = this.getPageNumber();
-  //   const { history } = this.props;
-  //   const { newsType, page } = newsData;
-  //   if (history.location.pathname !== newsType) {
-  //     console.log("Test", newsType, newsData, history.location.pathname);
-  //     this.getHackerNews(pNo);
-  //   }
-  // }
 
   getPageNumber() {
     const { history } = this.props;
