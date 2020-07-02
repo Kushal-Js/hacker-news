@@ -103,7 +103,11 @@ const newsitem = (props) => {
       );
     });
   }
-  return <>{newsElement}</>;
+  return (
+    <>
+      {newsElement}
+    </>
+  );
 };
 
 export default newsitem;

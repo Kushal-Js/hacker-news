@@ -8,6 +8,10 @@ export const localeData = {
     LOADING_TEXT: 'Loading...',
     TOP_NAVIGATION_TEXT: 'top',
     NEW_NAVIGATION_TEXT: 'new',
+    COMMENTS: 'Comments',
+    VOTES_COUNT: 'Votes Count',
+    UP_VOTE: 'Up Vote',
+    NEWS_DETAILS: 'News Details',
   },
 };
 
